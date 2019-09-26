@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/* Criando uma variável para definir a cor da border */
+.box {
+  border: 1px solid #ccc;
+}
+
+/* descobre o que deves usar para gerar o css */
+.foo {
+  background: orange;
+}
+.foo .p {
+  color: blue;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.foo {
+  background: orange;
+}
+.foo .p {
+  color: blue;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Usa uma divisão para definir o tamanho */
+.html {
+  font-size: 0.5em;
+}
+
+/* descobre o que deves usar para gerar o css */
+.user-dialog-box, .alert-winning-user {
+  border: 10px solid gray;
+  padding: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.alert-winning-user {
+  border-color: green;
+}
+
+/* cria um mixin dialog-box() com um argumento para definir a cor da border */
+.alert-winning-user {
+  border: green;
+  padding: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/*# sourceMappingURL=output.css.map */

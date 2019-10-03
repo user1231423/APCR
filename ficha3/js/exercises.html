@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="menu" id="mainMenu">
+      <ul>
+        <li><a href="index.html" class="menu-item">GET </a></li>
+        <li><a href="set.html" class="menu-item">SET </a></li>
+        <li><a href="create.html" class="menu-item">Create / remove </a></li>
+        <li><a href="classes.html" class="menu-item">Style classes </a></li>
+        <li><a href="events.html" class="menu-item">Events </a></li>
+        <li><a href="exercises.html" class="menu-item">Exercises </a></li>
+        <li><a href="#" class="menu-item">DOM </a></li>
+      </ul>
+    </div>
+
+    <h2 id="header">DOM Exercises </h2>
+
+    <div class="spaced">
+      <input type="text" id="name"/>
+      <button id="btn1">Show .value in console!</button>
+    </div>
+
+    <div id="nameList" class="spaced">
+      <input type="text" id="name2"/>
+      <button id="btn2">Add to Names list</button>
+      <h2 id="namesHeader">Names:</h2>
+      <ul>
+        <li>Gonçalo</li>
+      </ul>
+    </div>
+
+    <span id="result">Result: </span>
+
+    <script>
+      //ex1
+      document.getElementById('namesHeader').style.color = "Blue";
+
+      //ex2
+      document.getElementById('mainMenu').className = "menu-clear";
+
+      //ex3
+      document.body.innerHTML += "<p> Added Paragraph Text! </p>";
+
+      //ex4
+      var allA = document.getElementById("mainMenu").querySelectorAll("a");
+
+      // Create elemente ul and insert it in result as child
+      var ul = document.createElement('ul');
+      document.getElementById("result").appendChild(ul);
+
+      allA.forEach(function (element) {
+        //for each element create one li and set that li as ul child
+        var li = document.createElement('li');
+        li.appendChild(element);
+        ul.appendChild(li);
+      })
+
+      //ex5
+      document.getElementById("btn1").onclick = function () {
+        var txt = document.getElementById("name").value;
+        if(txt.length == 0){
+          alert("Write something on text field!");
+        }else{
+          console.log(txt);
+        }
+      };
+
+      //ex6
+      //Select ul inside nameList
+      var namesUl = document.querySelector("#nameList ul");
+
+      //on click btn function
+      document.getElementById("btn2").onclick = function () {
+        //Get text field value
+        var name = document.getElementById("name2").value;
+        if(name.length == 0){
+          alert("Write one name first!");
+        }else{
+          //Create li element
+          var li = document.createElement('li');
+          //set the text we got from text field as child to li using textNode
+          li.appendChild(document.createTextNode(name));
+          namesUl.appendChild(li);
+          //Empty the field
+          document.getElementById("name2").value = "";
+        }
+      }
+    </script>
+
+  </body>
+</html>

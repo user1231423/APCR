@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+</head>
+
+<body>
+    <ons-page>
+        <ons-toolbar>
+            <div class="center">Tab 1</div>
+        </ons-toolbar>
+
+        <ons-tabbar swipeable position="auto">
+            <ons-tab page="tab1.html" label="Home" icon="fa-home" active-icon="fa-eye" active>
+            </ons-tab>
+            <ons-tab page="tab2.html" label="Adicionar" icon="fa-home" active-icon="fa-eye">
+            </ons-tab>
+            <ons-tab page="tab3.html" label="Contactar" icon="fa-home" active-icon="fa-eye">
+            </ons-tab>
+            <ons-tab page="tab4.html" label="Mensagem" icon="fa-home" active-icon="fa-eye">
+            </ons-tab>
+        </ons-tabbar>
+    </ons-page>
+
+    <template id="tab1.html">
+        <ons-page id="Home">
+            <ons-list style="cursor: pointer">
+                <ons-list-item>Item A</ons-list-item>
+                <ons-list-item>Item B</ons-list-item>
+            </ons-list>
+            <ons-fab position="bottom right">
+                <ons-icon id="btnChange" icon="md-plus"></ons-icon>
+            </ons-fab>
+        </ons-page>
+    </template>
+
+    <template id="tab2.html">
+        <ons-page id="Adicionar">
+            <div style="text-align: center; margin-top: 30px;">
+                <ons-input id="nome" modifier="material" placeholder="Nome" float></ons-input>
+                <ons-button onclick="adicionar()">Adicionar</ons-button>
+            </div>
+        </ons-page>
+    </template>
+
+    <template id="tab3.html">
+        <ons-page id="Contactar">
+            <form style="width: 100%">
+                <ons-list>
+                    <ons-list-item>
+                        <ons-row class="floating-label">
+                            <ons-input id="name" modifier="material" placeholder="Nome" float style="width: 100%">
+                            </ons-input>
+                        </ons-row>
+                    </ons-list-item>
+
+                    <ons-list-item>
+                        <ons-row class="floating-label">
+                            <ons-input id="email" modifier="material" placeholder="E-Mail" float style="width: 100%">
+                            </ons-input>
+                        </ons-row>
+                    </ons-list-item>
+
+                    <ons-list-item>
+                        <ons-row class="floating-label">
+                            <textarea id="message" class="floating-input floating-textarea" placeholder=" "
+                                style="width: 100%; height: 100px;"></textarea>
+                            <label>Message</label>
+                        </ons-row>
+                    </ons-list-item>
+                </ons-list>
+                <div style="text-align: center; margin-top: 30px;">
+                    <ons-button onclick="enviar()">Enviar</ons-button>
+                </div>
+            </form>
+        </ons-page>
+    </template>
+
+
+    <template id="tab4.html">
+        <ons-page id="Mensagem">
+            <ons-list id="messageList">
+                <ons-list-item>
+                    <p>fsdgfdgdfgdfg</p>
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </template>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

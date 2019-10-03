@@ -9,22 +9,25 @@
 </head>
 
 <body>
-    <ons-page>
-        <ons-toolbar>
-            <div class="center">Tab 1</div>
-        </ons-toolbar>
+    <ons-navigator id="myNavigator">
 
-        <ons-tabbar swipeable position="auto">
-            <ons-tab page="tab1.html" label="Home" icon="fa-home" active-icon="fa-eye" active>
-            </ons-tab>
-            <ons-tab page="tab2.html" label="Adicionar" icon="fa-home" active-icon="fa-eye">
-            </ons-tab>
-            <ons-tab page="tab3.html" label="Contactar" icon="fa-home" active-icon="fa-eye">
-            </ons-tab>
-            <ons-tab page="tab4.html" label="Mensagem" icon="fa-home" active-icon="fa-eye">
-            </ons-tab>
-        </ons-tabbar>
-    </ons-page>
+        <ons-page>
+            <ons-toolbar>
+                <div class="center">Tab 1</div>
+            </ons-toolbar>
+
+            <ons-tabbar swipeable position="auto">
+                <ons-tab page="tab1.html" label="Home" icon="fa-home" active-icon="fa-eye" active>
+                </ons-tab>
+                <ons-tab page="tab2.html" label="Adicionar" icon="fa-plus" active-icon="fa-eye">
+                </ons-tab>
+                <ons-tab page="tab3.html" label="Contactar" icon="fa-envelope" active-icon="fa-eye">
+                </ons-tab>
+                <ons-tab page="tab4.html" label="Mensagem" icon="fa-list" active-icon="fa-eye">
+                </ons-tab>
+            </ons-tabbar>
+        </ons-page>
+    </ons-navigator>
 
     <template id="tab1.html">
         <ons-page id="Home">
@@ -84,10 +87,20 @@
     <template id="tab4.html">
         <ons-page id="Mensagem">
             <ons-list id="messageList">
-                <ons-list-item>
-                    <p>fsdgfdgdfgdfg</p>
-                </ons-list-item>
             </ons-list>
+        </ons-page>
+    </template>
+
+    <template id="itemNav.html">
+        <ons-page id="itemNav">
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Back</ons-back-button>
+                </div>
+            </ons-toolbar>
+            <p style="text-align: center;">
+                This is the first page.
+            </p>
         </ons-page>
     </template>
 

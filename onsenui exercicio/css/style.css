@@ -16,12 +16,6 @@
     /*   border-bottom:1px solid #757575; */
 }
 
-.floating-input:focus,
-.floating-select:focus {
-    /*   outline: none; */
-    /*   border-bottom:2px solid #5264AE;  */
-}
-
 label {
     color: #999;
     /*   font-size:14px; */
@@ -55,37 +49,4 @@ label {
     max-height: 260px;
     overflow: hidden;
     overflow-x: hidden;
-}
-
-
-/****  floating-Lable style end ****/
-
- ::-webkit-input-placeholder {
-    opacity: 0;
-    transition: inherit;
-}
-
-input:focus::-webkit-input-placeholder {
-    opacity: 1;
-}
-
-input:required:focus:valid+span:after {
-    content: '✔️';
-}
-
-input:required:focus:invalid+span:after {
-    content: '❌';
-}
-
-input:required:valid+ :after {
-    content: "✔️";
-}
-
-input:required:invalid+ :after {
-    content: '❌';
-}
-
-input:invalid:placeholder-shown+ :after {
-    content: " *";
-    color: red;
 }

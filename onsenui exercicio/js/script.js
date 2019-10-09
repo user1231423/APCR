@@ -1,3 +1,12 @@
+function addListeners() {
+    var list = document.querySelectorAll('ons-list > ons-list-item > div');
+    list.forEach(function(element) {
+        element.addEventListener('click', function(e) {
+            myNavigator.pushPage('itemNav.html', { data: { item: e.target.textContent } });
+        })
+    })
+}
+
 document.addEventListener('prechange', function(event) {
     document.querySelector('ons-toolbar .center')
         .innerHTML = event.tabItem.getAttribute('label');
@@ -18,6 +27,7 @@ var adicionar = function() {
         newItem.appendChild(newItemDiv);
         list.appendChild(newItem);
         name.value = "";
+        addListeners();
     }
 }
 
@@ -50,12 +60,7 @@ ons.ready(function() {
         document.querySelector('ons-tabbar').setActiveTab(1);
     });
 
-    var list = document.querySelectorAll('ons-list > ons-list-item > div');
-    list.forEach(function(element) {
-        element.addEventListener('click', function(e) {
-            myNavigator.pushPage('itemNav.html', { data: { item: e.target.textContent } });
-        })
-    })
+    addListeners();
 });
 
 document.addEventListener('init', function(event) {

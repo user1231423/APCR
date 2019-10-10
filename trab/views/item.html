@@ -1,0 +1,28 @@
+<ons-page id="item">
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button>Back</ons-back-button>
+        </div>
+    </ons-toolbar>
+    <ons-card>
+        <img src="https://monaca.io/img/logos/download_image_onsenui_01.png" alt="Onsen UI" style="width: 100%">
+        <div class="title">
+            Awesome framework
+        </div>
+        <div>
+            <p>
+                Some random text
+            </p>
+        </div>
+    </ons-card>
+    <script>
+        document.addEventListener('init', function (event) {
+            if (event.target.id === 'item') {
+                var title = 'Item Page';
+                event.target.querySelector('ons-toolbar div.center').textContent = title;
+                event.target.querySelector('ons-card > div').textContent = event.target.data.item;
+                event.target.querySelector('ons-card > div > p').textContent = "You have clicked on: " + event.target.data.item;
+            }
+        });
+    </script>
+</ons-page>

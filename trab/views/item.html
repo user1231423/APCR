@@ -15,8 +15,11 @@
             </p>
         </div>
     </ons-card>
+
+    <ons-action-sheet-button onclick="app.showFromObject()">Options</ons-action-sheet-button>
+
     <script>
-        document.addEventListener('init', function (event) {
+        document.addEventListener('init', function(event) {
             if (event.target.id === 'item') {
                 var title = 'Item Page';
                 event.target.querySelector('ons-toolbar div.center').textContent = title;
@@ -24,5 +27,26 @@
                 event.target.querySelector('ons-card > div > p').textContent = "You have clicked on: " + event.target.data.item;
             }
         });
+
+        var app = {};
+
+        app.showFromObject = function() {
+            ons.openActionSheet({
+                title: 'Option',
+                cancelable: true,
+                buttons: [
+                    'Label 0',
+                    'Label 1', {
+                        label: 'Label 2',
+                        modifier: 'destructive'
+                    }, {
+                        label: 'Cancel',
+                        icon: 'md-close'
+                    }
+                ]
+            }).then(function(index) {
+                //console.log('index: ', index)
+            });
+        };
     </script>
 </ons-page>

@@ -6,7 +6,7 @@
                 Switch 1
             </div>
             <div class="right">
-                <ons-switch id="1stSwitch" !checked></ons-switch>
+                <ons-switch id="1stSwitch" checked></ons-switch>
             </div>
         </ons-list-item>
         <ons-list-item>
@@ -14,7 +14,7 @@
                 Switch 2
             </div>
             <div class="right">
-                <ons-switch id="2ndSwitch" !checked></ons-switch>
+                <ons-switch id="2ndSwitch"></ons-switch>
             </div>
         </ons-list-item>
     </ons-list>
@@ -22,12 +22,27 @@
     <script>
         var btn1 = document.getElementById('1stSwitch');
         var btn2 = document.getElementById('2ndSwitch');
-        btn1.addEventListener('change', function (e) {
-            if (e.value == false) {
+        ons.ready(function() {
+            if (btn1.hasAttribute('checked')) {
+                btn2.removeAttribute('disabled');
+            }
+        })
+
+        btn2.addEventListener('change', function(e) {
+            if (e.value == true) {
+                btn2.setAttribute('checked');
+            } else {
+                btn2.removeAttribute('checked');
+            }
+
+        })
+
+        btn1.addEventListener('change', function(e) {
+            if (e.value == true) {
+                btn2.removeAttribute('disabled');
+            } else {
                 btn2.setAttribute('disabled');
                 btn2.removeAttribute('checked');
-            }else{
-                btn2.removeAttribute('disabled');
             }
         });
     </script>

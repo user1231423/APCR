@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>ACR AJAX</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body style="padding: 40px;">
+  <div id="app">
+    <ul>
+      <li><a href="index.html">Fetch API</a></li>
+      <li><a href="vue.html">vue.js + fetch</a></li>
+      <li><a href="jquery.html">jQuery AJAX</a></li>
+      <li><a href="exercise.html">Exercise</a></li>
+      <li><a href="xhr.html">XMLHttpRequest</a></li>
+    </ul>
+
+    <div class="container">
+      <h3>Fetch Exercise</h3>
+      <button id="btn1" v-on:click="showAlbums">list posts</button>
+      <button id="btn2">post 1</button>
+      <button id="btn3">user 1 todos</button>
+      <button id="btn4">user 1 completed todos</button>
+    </div>
+
+    <div id="result">
+    </div>
+
+  </div>
+  <script>
+    const url = "https://jsonplaceholder.typicode.com/";
+
+    var app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          posts: null,
+          post1: null,
+          user1todos: null,
+          user1complete: null
+        }
+      },
+      methods: {
+        fetchPosts: function () {
+          fetch(url + "posts")
+            .then(res => res.json())
+            .then(json => {
+              console.log(json);
+            })
+        },
+        fetchPostsID1: function () {
+          fetch(url + "posts/1")
+            .then(res => res.json())
+            .then(json => {
+              var div = document.createElement("div");
+              var h1 = document.createElement("h1");
+              h1.innerHTML += "Title:";
+              div.appendChild(h1);
+              var conteudo = document.createElement("p");
+              conteudo.innerHTML += json.title;
+              div.appendChild(conteudo);
+              document.querySelector('#result').appendChild(div);
+              console.log(json);
+            })
+        },
+        fetchTodosUserId2: function () {
+          fetch(url + "todos?userId=2")
+            .then(res => res.json())
+            .then(json => {
+              console.log(json);
+            })
+        },
+        fetchTodosCompletedId2: function () {
+          fetch(url + "todos?userId=2&completed=true")
+            .then(res => res.json())
+            .then(json => {
+              console.log(json);
+              /*
+              var retornar = [];
+              json.forEach(function(element){
+                if(element.completed == true){
+                  retornar.push(element);
+                }
+              })
+              console.log(retornar);
+            */
+            })
+        },
+        showAlbums: function(){
+          fetch(url + "albums?userId=2")
+            .then(res => res.json())
+            .then(json => {
+              var h1 = document.createElement("h1");
+              h1.innerHTML += "Numero de Albums do user 2: " + json.length;
+              document.querySelector("#result").appendChild(h1);
+            })
+        },
+        fetchGetPhotoAlbumId3: function(){
+          fetch(url + "photos?albumId=3")
+            .then(res => res.json())
+            .then(json => {
+              console.log(json);
+            })
+        }
+      },
+      created() {
+        //Get post list and print it on console
+        //this.fetchPosts();
+        //Get all info from the post with the id 1
+        //this.fetchPostsID1();
+        //Get all todos from user with the id 2
+        //this.fetchTodosUserId2();
+        //Get all complete todos from user with the id 2
+        //this.fetchTodosCompletedId2();
+        this.fetchGetPhotoAlbumId3();
+      },
+    })
+  </script>
+</body>
+
+</html>

@@ -27,7 +27,7 @@ function getDayOfWeek(){
     return date('w');
 }
 
-if( (getDayOfWeek() == 6) || (getDayOfWeek() == 7) ){
+if( (getDayOfWeek() == 0) || (getDayOfWeek() == 6) ){
     echo "<h1>BOA!!</h1>";
 }else{
     echo "<h1>Nunca mais é fim de semana!!!</h1>";

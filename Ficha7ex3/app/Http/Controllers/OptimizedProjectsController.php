@@ -37,7 +37,7 @@ class OptimizedProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = request()->validate(['title' => ['required', 'min:2','max:255'], 'description' => 'required']);
+        $validated = request()->validate(['title' => ['required', 'min:2','max:255'], 'content' => 'required']);
         Project::create($validated);
     
         return redirect('/projects');

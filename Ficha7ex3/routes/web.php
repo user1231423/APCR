@@ -36,7 +36,7 @@ Route::get('/contact',function(){
 });
 */
 
-Route::get('/', 'PagesController@home');
+Route::get('/', 'ArticlesController@index');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/about', 'PagesController@about');
 
@@ -55,3 +55,6 @@ Route::get('/projects/{id}','ProjectsController@show');
 Route::patch('/projects/{id}/edit','ProjectsController@edit');
 Route::delete('/projects/{id}','ProjectsController@delete');
 */
+
+Route::get('/articles/featured','ArticlesController@featured');
+Route::resource('articles','ArticlesController');

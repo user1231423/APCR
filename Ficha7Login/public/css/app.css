@@ -11100,3 +11100,24 @@ a.text-dark:focus {
   }
 }
 
+.marginTop {
+  margin-top: 1em;
+}
+
+.mainContainer {
+  background-color: white;
+  margin-top: 5em;
+  margin-left: 5em;
+  margin-right: 5em;
+}
+
+.topSpace {
+  margin-top: 2em;
+}
+
+.fixBtn {
+  position: fixed;
+  left: 8em;
+  top: 24.9em;
+}
+

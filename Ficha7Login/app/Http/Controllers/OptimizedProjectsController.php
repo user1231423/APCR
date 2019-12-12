@@ -60,7 +60,8 @@ class OptimizedProjectsController extends Controller
     public function show(Project $project)
     {
         //abort_unless(auth()->user()->owns($project), 403);
-        $this->authorize('update', $project);
+        //abort_if($project->owner_id !== auth()->id(), 403);
+        $this->authorize('view', $project);
         return view('projects.show', compact('project'));
     }
 
@@ -72,6 +73,8 @@ class OptimizedProjectsController extends Controller
      */
     public function edit(Project $project)
     {
+        //dd(auth()->id(), $project);
+        $this->authorize('update', $project);
         return view('projects.edit', compact('project'));
     }
 
@@ -85,7 +88,6 @@ class OptimizedProjectsController extends Controller
     public function update(Project $project)
     {
         $validated = request()->validate(['title' => ['required', 'min:2','max:255'], 'description' => 'required']);
-
         $project->update($validated);
         
         return redirect('/projects');
@@ -99,6 +101,7 @@ class OptimizedProjectsController extends Controller
      */
     public function destroy(Project $project)
     {
+        $this->authorize('delete', $project);
         $project->delete();
         return redirect('/projects');
     }

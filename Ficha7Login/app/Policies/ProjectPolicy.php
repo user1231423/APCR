@@ -30,7 +30,7 @@ class ProjectPolicy
      */
     public function view(User $user, Project $project)
     {
-        //
+        return $user->id === $project->owner_id;
     }
 
     /**
@@ -53,7 +53,7 @@ class ProjectPolicy
      */
     public function update(User $user, Project $project)
     {
-        return $project->owner_id == $user->id;
+        return $user->id === $project->owner_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class ProjectPolicy
      */
     public function delete(User $user, Project $project)
     {
-        //
+        return $user->id === $project->owner_id;
     }
 
     /**

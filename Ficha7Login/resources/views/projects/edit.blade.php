@@ -2,7 +2,6 @@
 
 @section('content') 
     @include('errors')
-    @can('update', $project)
         <form method="POST" action="/projects/{{ $project-> id}}">
             {{ method_field('PATCH') }}
 
@@ -31,7 +30,6 @@
                 </div>
             </div>
         </form>
-    @endcan
     
     <br>
     <form method="POST" action="/projects/{{ $project->id }}">
